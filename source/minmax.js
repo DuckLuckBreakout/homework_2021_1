@@ -15,7 +15,7 @@
  * minmax('1, -5.8 lala 10, qwer 34 + -5.3 s 73');
  */
 const minmax = (str = '') => {
-    if (typeof(str) != 'string')
+    if (typeof str !== 'string')
         return [undefined, undefined];
     const numbers = str.split(' ').
                         map((x) => parseFloat(x)).
