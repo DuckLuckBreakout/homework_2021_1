@@ -101,10 +101,26 @@
  * @example
  * // returns [ -Infinity, -Infinity ]
  * minmax('-Infinity infinity');
+ *
+ *
+ * @example <caption>min max ignores invalid data types: </caption>
+ * // returns [ undefined, undefined ]
+ * minmax(1);
+ *
+ * @example
+ * // returns [ undefined, undefined ]
+ * minmax([1, 2, 3]);
+ *
+ * @example
+ * // returns [ undefined, undefined ]
+ * minmax({'lala': 'lalalala'});
  */
 
 
 const minmax = (str = '') => {
+    if (typeof str != "string")
+        return [undefined, undefined]
+
     const numbers = str.split(' ').map(x => parseFloat(x)).filter(x => !isNaN(x));
     return numbers.reduce(
         ([min = Infinity, max = -Infinity], number) => [

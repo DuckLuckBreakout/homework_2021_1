@@ -35,4 +35,10 @@ QUnit.module('Тестируем функцию minmax', function () {
 		assert.deepEqual(minmax('1, -5.8 или 10, хотя 34 + -5.3 и 73'), [ -5.8, 73 ]);
 		assert.deepEqual(minmax('-Infinity infinity'), [ -Infinity, -Infinity ]);
 	});
+
+	QUnit.test('minmax игнорирует некорректные типы данных', function (assert) {
+		assert.deepEqual(minmax(1), [ undefined, undefined ]);
+		assert.deepEqual(minmax([1, 2, 3]), [ undefined, undefined ]);
+		assert.deepEqual(minmax({'lala': 'lalalala'}), [ undefined, undefined ]);
+	});
 });
