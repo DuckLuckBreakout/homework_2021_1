@@ -27,9 +27,12 @@ QUnit.module('Тестируем функцию minmax', function () {
 		assert.deepEqual(minmax('1 2 3 4'), [ 1, 4 ]);
 		assert.deepEqual(minmax('-Infinity -1 0 1 Infinity'), [ -Infinity, Infinity ]);
 		assert.deepEqual(minmax('-.01 0 .01'), [ -.01, .01 ]);
+		assert.deepEqual(minmax('-Infinity -Infinity Infinity Infinity'), [ -Infinity, Infinity ]);
+		assert.deepEqual(minmax('Infinity Infinity'), [ Infinity, Infinity ]);
 	});
 
 	QUnit.test('minmax игнорирует обычный текст', function (assert) {
 		assert.deepEqual(minmax('1, -5.8 или 10, хотя 34 + -5.3 и 73'), [ -5.8, 73 ]);
+		assert.deepEqual(minmax('-Infinity infinity'), [ -Infinity, -Infinity ]);
 	});
 });
