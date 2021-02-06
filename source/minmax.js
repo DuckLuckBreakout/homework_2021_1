@@ -104,9 +104,12 @@
  */
 
 
-const minmax = (str = '') => str.split(' ').map(x => parseFloat(x)).filter(x => !isNaN(x)).reduce(
-    ([min = Infinity, max = -Infinity], number) => [
-        min < number ? min : number,
-        max > number ? max : number
-    ], [undefined, undefined]
-);
+const minmax = (str = '') => {
+    const numbers = str.split(' ').map(x => parseFloat(x)).filter(x => !isNaN(x));
+    return numbers.reduce(
+        ([min = Infinity, max = -Infinity], number) => [
+            min < number ? min : number,
+            max > number ? max : number
+        ], [undefined, undefined]
+    );
+};
