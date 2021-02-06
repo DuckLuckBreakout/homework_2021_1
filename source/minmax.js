@@ -47,7 +47,7 @@
  * minmax(1);
  */
 const minmax = (str = '') => {
-    if (typeof str != "string")
+    if (typeof str != 'string')
         return [undefined, undefined]
     const numbers = str.split(' ').map(x => parseFloat(x)).filter(x => !isNaN(x));
     return numbers.reduce(
