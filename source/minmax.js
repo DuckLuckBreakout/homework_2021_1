@@ -39,7 +39,7 @@
  * minmax('-Infinity -1 0 1 Infinity');
  *
  * @example <caption>min max ignores text: </caption>
- * // returns [ Infinity, Infinity ]
+ * // returns [ -5.8, 73 ]
  * minmax('1, -5.8 lala 10, qwer 34 + -5.3 s 73');
  *
  * @example <caption>min max ignores invalid data types: </caption>
